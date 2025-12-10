@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://3gicpphw4ki0"]
+
+[ext_resource type="PackedScene" uid="uid://bw7oebjpdt5r8" path="res://runner.tscn" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://5vl7p0xb7nd8" path="res://assets/circuit_background.png" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://caospjjbmie5c" path="res://simple_obstacle__.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c6m5ktrjrtgba" path="res://circuit.tscn" id="4_7jktm"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, 74)
+
+[node name="CircuitBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1874, 986)
+scale = Vector2(1.0153645, 0.99665177)
+texture = ExtResource("1_fc0e3")
+
+[node name="Runner" parent="." instance=ExtResource("1_e2o6t")]
+position = Vector2(1252, 220)
+motion_mode = 0
+
+[node name="SimpleObstacle" parent="." instance=ExtResource("2_feb5d")]
+z_index = -1
+position = Vector2(1160, 163)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="Circuit" parent="." instance=ExtResource("4_7jktm")]
+position = Vector2(1867, 1009)
+metadata/_edit_lock_ = true
