@@ -15,20 +15,24 @@ scale = Vector2(1.0153645, 0.99665177)
 texture = ExtResource("1_fc0e3")
 
 [node name="Runner" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(1252, 220)
+position = Vector2(1279, 217)
 motion_mode = 0
 
 [node name="SimpleObstacle" parent="." instance=ExtResource("2_feb5d")]
 z_index = -1
-position = Vector2(1160, 163)
+position = Vector2(1470, 134)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="SimpleObstacle2" parent="." instance=ExtResource("2_feb5d")]
+z_index = -1
+position = Vector2(510, 1061)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="SimpleObstacle3" parent="." instance=ExtResource("2_feb5d")]
+z_index = -1
+position = Vector2(1885, 841)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="SimpleObstacle4" parent="." instance=ExtResource("2_feb5d")]
+z_index = -1
+position = Vector2(3271, 809)
 
 [node name="Circuit" parent="." instance=ExtResource("4_7jktm")]
 position = Vector2(1867, 1009)
