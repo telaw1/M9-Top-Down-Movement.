@@ -8,6 +8,9 @@ extends CharacterBody2D
 
 @onready var _runner_visual: RunnerVisual = %RunnerVisualRed
 
+func _ready() -> void:
+	position = get_viewport().size * 0.5
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var has_input_direction := direction.length() > 0.0

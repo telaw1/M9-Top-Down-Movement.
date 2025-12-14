@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw7oebjpdt5r8"]
+[gd_scene load_steps=6 format=3 uid="uid://bw7oebjpdt5r8"]
 
 [ext_resource type="Script" uid="uid://cf2tlt4hj8m8h" path="res://runner.gd" id="1_f7b3c"]
 [ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="2_f7b3c"]
@@ -7,14 +7,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7b3c"]
 radius = 35.44009
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_5pwe8"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Runner" type="CharacterBody2D"]
 position = Vector2(3, 20)
 motion_mode = 1
 script = ExtResource("1_f7b3c")
-
-[node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0.2357319, 0.23573193, 0.2357319, 1)
-texture = ExtResource("3_5pwe8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -37)
@@ -22,8 +21,20 @@ shape = SubResource("CircleShape2D_f7b3c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.2357319, 0.23573193, 0.2357319, 1)
+self_modulate = Color(0, 0, 0, 0.15686275)
+position = Vector2(1, 2)
+texture = ExtResource("3_5pwe8")
+
 [node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(124, 150)
 
 [node name="RunnerVisualRed" parent="SubViewport" instance=ExtResource("2_f7b3c")]
 unique_name_in_owner = true
 position = Vector2(3, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(26, -22)
+scale = Vector2(1.5241935, 1.4133333)
+texture = SubResource("ViewportTexture_5pwe8")
