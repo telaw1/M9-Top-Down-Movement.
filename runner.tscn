@@ -1,22 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw7oebjpdt5r8"]
+[gd_scene load_steps=8 format=3 uid="uid://bw7oebjpdt5r8"]
 
 [ext_resource type="Script" uid="uid://cf2tlt4hj8m8h" path="res://runner.gd" id="1_f7b3c"]
 [ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="2_f7b3c"]
 [ext_resource type="Texture2D" uid="uid://dbcmxo51msi8m" path="res://assets/runner/shadow.png" id="3_5pwe8"]
+[ext_resource type="Shader" uid="uid://bwhexggpo0snf" path="res://assets/character_contour.gdshader" id="4_hfbw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7b3c"]
-radius = 35.44009
+radius = 35.468296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44hxy"]
+shader = ExtResource("4_hfbw2")
+shader_parameter/viewport_scale = Vector2(1, 1)
+shader_parameter/line_color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+shader_parameter/line_thickness = 4.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5pwe8"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Runner" type="CharacterBody2D"]
-position = Vector2(3, 20)
+position = Vector2(256, 256)
 motion_mode = 1
 script = ExtResource("1_f7b3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -37)
+scale = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_f7b3c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -24,17 +32,19 @@ shape = SubResource("CircleShape2D_f7b3c")
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.2357319, 0.23573193, 0.2357319, 1)
 self_modulate = Color(0, 0, 0, 0.15686275)
-position = Vector2(1, 2)
+position = Vector2(2, 5)
+scale = Vector2(1.0208334, 1.09375)
 texture = ExtResource("3_5pwe8")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(124, 150)
+transparent_bg = true
 
 [node name="RunnerVisualRed" parent="SubViewport" instance=ExtResource("2_f7b3c")]
 unique_name_in_owner = true
-position = Vector2(3, 20)
+position = Vector2(125, 222)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(26, -22)
-scale = Vector2(1.5241935, 1.4133333)
+material = SubResource("ShaderMaterial_44hxy")
+position = Vector2(39, -19.999996)
+scale = Vector2(0.3010254, 0.3027344)
 texture = SubResource("ViewportTexture_5pwe8")

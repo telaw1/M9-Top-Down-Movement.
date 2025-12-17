@@ -15,7 +15,7 @@ scale = Vector2(1.0153645, 0.99665177)
 texture = ExtResource("1_fc0e3")
 
 [node name="Runner" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(1279, 217)
+position = Vector2(1244, 261)
 motion_mode = 0
 
 [node name="SimpleObstacle" parent="." instance=ExtResource("2_feb5d")]
